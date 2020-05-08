@@ -14,7 +14,12 @@ namespace Supermarket.API.Services
     public CategoryService(AppDbContext context) {
       _context = context;
     }
-    
+
+    public async Task<Category> GetAsync(int id)
+    {
+      return await _context.Categories.FindAsync(id);
+    }
+
     public async Task<IEnumerable<Category>> ListAsync()
     {
       return await _context.Categories.ToListAsync();
@@ -24,6 +29,14 @@ namespace Supermarket.API.Services
     {
       _context.Categories.Add(category);
 
+      await _context.SaveChangesAsync();
+
+      return category;
+    }
+
+    public async Task<Category> UpdateAsync(Category category)
+    {
+      _context.Categories.Update(category);
       await _context.SaveChangesAsync();
 
       return category;

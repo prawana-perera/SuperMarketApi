@@ -21,7 +21,14 @@ dotnet ef database update
 dotnet run
 
 # Run watch for changes
-dotnet run watch
+dotnet watch run
 ```
 
 Test using GET `https://localhost:5001/api/categories`
+
+TODO:
+ - Handling exceptions in a nice way/globally so we can return status code and response
+   - https://www.strathweb.com/2018/07/centralized-exception-handling-and-request-validation-in-asp-net-core/
+   - https://code-maze.com/global-error-handling-aspnetcore/
+ - Unit Testing
+ - TBA

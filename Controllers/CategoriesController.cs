@@ -8,8 +8,9 @@ using Supermarket.API.Services;
 
 namespace Supermarket.API.Controllers
 {
+  [ApiController]
   [Route("/api/[controller]")]
-  public class CategoriesController : Controller
+  public class CategoriesController : ControllerBase
   {
     private readonly ICategoryService _catergoryService;
     private readonly IMapper _mapper;
@@ -21,24 +22,66 @@ namespace Supermarket.API.Controllers
     }
 
     [HttpGet]
-    public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
+    public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetAll()
     {
       var categories = await _catergoryService.ListAsync();
-      return _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryDTO>>(categories);
+      return Ok(_mapper.Map<IEnumerable<Category>, IEnumerable<CategoryDTO>>(categories));
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<CategoryDTO>> GetById(int id)
+    {
+      var category = await _catergoryService.GetAsync(id);
+
+      if (category == null)
+      {
+        return NotFound();
+      }
+
+      return Ok(_mapper.Map<Category, CategoryDTO>(category));
     }
 
     [HttpPost]
-    public async Task<ActionResult<CategoryDTO>> PostAsync([FromBody] CreateCategoryDTO categoryDTO)
+    public async Task<ActionResult<CategoryDTO>> Create([FromBody] CategoryDTO categoryDTO)
     {
-      if(!ModelState.IsValid)
+      if (!ModelState.IsValid)
       {
         return BadRequest(ModelState.GetErrorMessages());
       }
 
-      var category = _mapper.Map<CreateCategoryDTO, Category>(categoryDTO);
+      var category = _mapper.Map<CategoryDTO, Category>(categoryDTO);
       category = await _catergoryService.SaveAsync(category);
 
-      return _mapper.Map<Category, CategoryDTO>(category);
+      return CreatedAtAction(
+                nameof(GetById),
+                new { id = category.Id },
+                _mapper.Map<Category, CategoryDTO>(category));
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<CategoryDTO>> Update(int id, [FromBody] CategoryDTO categoryDTO)
+    {
+      if(categoryDTO.Id != id) {
+        return BadRequest();
+      }
+
+      // TODO not working WIP
+      var category = await _catergoryService.GetAsync(id);
+
+      if (category == null)
+      {
+        return NotFound();
+      }
+
+      if (!ModelState.IsValid)
+      {
+        return BadRequest(ModelState.GetErrorMessages());
+      }
+
+      category = _mapper.Map<CategoryDTO, Category>(categoryDTO);
+      await _catergoryService.UpdateAsync(category);
+
+      return Ok(_mapper.Map<Category, CategoryDTO>(category));
     }
   }
 }
