@@ -42,12 +42,12 @@ namespace Supermarket.API.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult<CategoryDTO>> Create([FromBody] CategoryDTO categoryDTO)
+    public async Task<ActionResult<CategoryDTO>> Create(CategoryDTO categoryDTO)
     {
-      if (!ModelState.IsValid)
-      {
-        return BadRequest(ModelState.GetErrorMessages());
-      }
+      // if (!ModelState.IsValid)
+      // {
+      //   return BadRequest(ModelState.GetErrorMessages());
+      // }
 
       var category = _mapper.Map<CategoryDTO, Category>(categoryDTO);
       category = await _catergoryService.SaveAsync(category);

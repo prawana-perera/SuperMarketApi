@@ -28,7 +28,6 @@ Test using GET `https://localhost:5001/api/categories`
 
 TODO:
  - Handling exceptions in a nice way/globally so we can return status code and response
-   - https://www.strathweb.com/2018/07/centralized-exception-handling-and-request-validation-in-asp-net-core/
-   - https://code-maze.com/global-error-handling-aspnetcore/
+   - https://blog.jonblankenship.com/2020/04/12/global-exception-handling-in-aspnet-core-api/
  - Unit Testing
  - TBA
