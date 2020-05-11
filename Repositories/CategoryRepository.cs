@@ -13,7 +13,7 @@ namespace Supermarket.API.Repositories
         {
         }
 
-        public async Task<IEnumerable<Category>> ListAsync()
+        public async Task<IEnumerable<Category>> FindAll()
         {
             return await _context.Categories.ToListAsync();
         }

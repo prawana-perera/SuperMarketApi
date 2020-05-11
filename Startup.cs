@@ -9,6 +9,7 @@ using Supermarket.API.Repositories;
 using Supermarket.API.Services;
 using AutoMapper;
 using Supermarket.API.Mapping;
+using Supermarket.API.Middleware;
 
 namespace SuperMarketApi
 {
@@ -34,7 +35,7 @@ namespace SuperMarketApi
 
       services.AddScoped<ICategoryRepository, CategoryRepository>();
       services.AddScoped<ICategoryService, CategoryService>();
-      
+
       services.AddAutoMapper(typeof(ModelToDtoProfile));
       services.AddAutoMapper(typeof(DtoToModelProfile));
     }
@@ -46,6 +47,9 @@ namespace SuperMarketApi
       {
         app.UseDeveloperExceptionPage();
       }
+
+      // Hook in the global error-handling middleware
+      app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
       app.UseHttpsRedirection();
 

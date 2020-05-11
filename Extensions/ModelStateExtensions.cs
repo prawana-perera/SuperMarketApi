@@ -7,6 +7,10 @@ namespace Supermarket.API.Extensions
 {
   public static class ModelStateExtensions
   {
+    /*
+     This extension on the ModelState is not necessary as adding [ApiController] on the controller adds validation translation
+     automatically.
+    */
     public static List<ErrorDTO> GetErrorMessages(this ModelStateDictionary dictionary)
     {
       return dictionary

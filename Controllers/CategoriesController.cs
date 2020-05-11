@@ -24,33 +24,28 @@ namespace Supermarket.API.Controllers
     [HttpGet]
     public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetAll()
     {
-      var categories = await _catergoryService.ListAsync();
+      var categories = await _catergoryService.FindAll();
       return Ok(_mapper.Map<IEnumerable<Category>, IEnumerable<CategoryDTO>>(categories));
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<CategoryDTO>> GetById(int id)
     {
-      var category = await _catergoryService.GetAsync(id);
-
-      if (category == null)
-      {
-        return NotFound();
-      }
-
+      var category = await _catergoryService.GetById(id);
       return Ok(_mapper.Map<Category, CategoryDTO>(category));
     }
 
     [HttpPost]
     public async Task<ActionResult<CategoryDTO>> Create(CategoryDTO categoryDTO)
     {
+      // This is automatically handled by added [ApiController] to this controller, also [FromBody is also handled by this attribute]
       // if (!ModelState.IsValid)
       // {
       //   return BadRequest(ModelState.GetErrorMessages());
       // }
 
       var category = _mapper.Map<CategoryDTO, Category>(categoryDTO);
-      category = await _catergoryService.SaveAsync(category);
+      category = await _catergoryService.Create(category);
 
       return CreatedAtAction(
                 nameof(GetById),
@@ -64,22 +59,9 @@ namespace Supermarket.API.Controllers
       if(categoryDTO.Id != id) {
         return BadRequest();
       }
-
-      // TODO not working WIP
-      var category = await _catergoryService.GetAsync(id);
-
-      if (category == null)
-      {
-        return NotFound();
-      }
-
-      if (!ModelState.IsValid)
-      {
-        return BadRequest(ModelState.GetErrorMessages());
-      }
-
-      category = _mapper.Map<CategoryDTO, Category>(categoryDTO);
-      await _catergoryService.UpdateAsync(category);
+    
+      var category = _mapper.Map<CategoryDTO, Category>(categoryDTO);
+      category = await _catergoryService.Update(category);
 
       return Ok(_mapper.Map<Category, CategoryDTO>(category));
     }
