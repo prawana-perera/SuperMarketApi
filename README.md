@@ -31,3 +31,7 @@ TODO:
    - https://blog.jonblankenship.com/2020/04/12/global-exception-handling-in-aspnet-core-api/
  - Unit Testing
  - TBA
+
+## References
+- https://medium.com/free-code-camp/an-awesome-guide-on-how-to-build-restful-apis-with-asp-net-core-87b818123e28
+- https://blog.jonblankenship.com/2020/04/12/global-exception-handling-in-aspnet-core-api/
