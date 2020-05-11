@@ -19,3 +19,8 @@ dotnet add ./SuperMarketApi.Tests/SuperMarketApi.Tests.csproj reference ./SuperM
 # Add the test project to the solution
 dotnet sln add ./SuperMarketApi.Tests/SuperMarketApi.Tests.csproj
 ```
+
+## Running Tests
+```bash
+dotnet test  SuperMarketApi.Tests/SuperMarketApi.Tests.csproj
+```
