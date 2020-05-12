@@ -23,6 +23,7 @@ dotnet sln add ./SuperMarketApi.Tests/SuperMarketApi.Tests.csproj
 ## Running Tests
 ```bash
 dotnet test  SuperMarketApi.Tests/SuperMarketApi.Tests.csproj
+dotnet test  SuperMarketApi.IntegrationTests/SuperMarketApi.IntegrationTests.csproj
 ```
 
 ## References
