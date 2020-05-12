@@ -24,3 +24,8 @@ dotnet sln add ./SuperMarketApi.Tests/SuperMarketApi.Tests.csproj
 ```bash
 dotnet test  SuperMarketApi.Tests/SuperMarketApi.Tests.csproj
 ```
+
+## References
+
+### Testing
+- https://wrightfully.com/assert-framework-comparison#equality
