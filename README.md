@@ -1,4 +1,19 @@
-## Creating a solution
+# Description
+A sample repo containing my learning with .Net, C# and ASP.Net.
+
+Some topics covered:
+ - [ ] Setting up a .Net project/solution
+ - [ ] Create a Web Api (REST)
+   - [ ] Error handling and API response
+   - [ ] App configuration
+ - [ ] Persistence using Entity Framework (EF)
+ - [ ] Unit Testing
+ - [ ] Integration Testing
+ - [ ] Docker
+ - [ ] TBA more topics...
+
+## .Net Commands
+### Creating a solution
 ```bash
 # Create a new solution project
 dotnet new sln -o SuperMarketApi
@@ -20,13 +35,42 @@ dotnet add ./SuperMarketApi.Tests/SuperMarketApi.Tests.csproj reference ./SuperM
 dotnet sln add ./SuperMarketApi.Tests/SuperMarketApi.Tests.csproj
 ```
 
-## Running Tests
+### Running Tests
 ```bash
 dotnet test  SuperMarketApi.Tests/SuperMarketApi.Tests.csproj
 dotnet test  SuperMarketApi.IntegrationTests/SuperMarketApi.IntegrationTests.csproj
 ```
 
+### Others
+```bash
+# Restore (aka install) required packages
+dotnet restore
+
+# Generate a new API project
+dotnet new webapi
+
+# Adding packages  (e.g. npm install xxx --save)
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+dotnet add package AutoMapper
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+
+# Create a migration file
+dotnet ef migrations add InitialCreate
+
+# Run any pending migrations
+dotnet ef database update
+
+# Run
+dotnet run
+
+# Run watch for changes
+dotnet watch run
+```
+
 ## References
+- https://medium.com/free-code-camp/an-awesome-guide-on-how-to-build-restful-apis-with-asp-net-core-87b818123e28
+- https://blog.jonblankenship.com/2020/04/12/global-exception-handling-in-aspnet-core-api/
 
 ### Testing
 - https://wrightfully.com/assert-framework-comparison#equality
