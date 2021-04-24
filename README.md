@@ -2,15 +2,15 @@
 A sample repo containing my learning with .Net, C# and ASP.Net.
 
 Some topics covered:
- - [ ] Setting up a .Net project/solution
- - [ ] Create a Web Api (REST)
-   - [ ] Error handling and API response
-   - [ ] App configuration
- - [ ] Persistence using Entity Framework (EF)
- - [ ] Unit Testing
- - [ ] Integration Testing
- - [ ] Docker
- - [ ] TBA more topics...
+- [x] Setting up a .Net project/solution
+- [x] Create a Web Api (REST)
+  - [ ] Error handling and API response
+  - [ ] App configuration
+- [ ] Persistence using Entity Framework (EF)
+- [x] Unit Testing
+- [ ] Integration Testing
+- [ ] Docker
+- [ ] TBA more topics...
 
 ## .Net Commands
 ### Creating a solution
