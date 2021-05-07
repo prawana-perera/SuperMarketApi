@@ -40,5 +40,5 @@ jobs:
         with:
           name: app-deploy-artifacts
       - name: Docker
-        run: ls -al SuperMarketApi
+        run: ls -al
       
