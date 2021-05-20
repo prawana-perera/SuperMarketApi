@@ -43,6 +43,7 @@ jobs:
         run: ls -al
       - name: Print vars
         run: |
+          echo HELLO ===
           echo RUN ID = ${{ github.run_id }} \
           echo RUN NUMBER = ${{ github.run_number }}
       
