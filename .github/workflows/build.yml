@@ -41,4 +41,8 @@ jobs:
           name: app-deploy-artifacts
       - name: Docker
         run: ls -al
+      - name: Print vars
+        run: |
+          echo RUN ID = ${{ github.run_id }} \
+          echo RUN NUMBER = ${{ github.run_number }}
       
