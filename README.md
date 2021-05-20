@@ -10,6 +10,10 @@ Some topics covered:
 - [x] Unit Testing
 - [ ] Integration Testing
 - [ ] Docker
+- [ ] CI/CD
+  - [ ] GitHub Actions
+  - [ ] Azure Devops
+- Upgrade to .Net Core V5
 - [ ] TBA more topics...
 
 ## .Net Commands

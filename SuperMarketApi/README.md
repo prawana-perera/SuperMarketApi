@@ -32,6 +32,14 @@ TODO:
  - Unit Testing
  - TBA
 
+ # Docker
+ Can run the app in docker:
+ ```bash
+dotnet publish -c Release
+docker build -t supermarket-api .
+docker run -p 5001:80 supermarket-api
+ ```
+
 ## References
 - https://medium.com/free-code-camp/an-awesome-guide-on-how-to-build-restful-apis-with-asp-net-core-87b818123e28
 - https://blog.jonblankenship.com/2020/04/12/global-exception-handling-in-aspnet-core-api/
