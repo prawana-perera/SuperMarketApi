@@ -11,8 +11,16 @@ Some topics covered:
 - [ ] Integration Testing
 - [ ] Docker
 - [ ] CI/CD
-  - [ ] GitHub Actions
-  - [ ] Azure Devops
+  - [ ] Option 1 - GitHub Actions
+    - [X] Build and Test
+    - [X] Build Docker image
+    - [X] Push to container registry
+    - [ ] Deploy to Kubenetes cluster
+  - [ ] Option 2 - Azure Devops
+    - [ ] Build and Test
+    - [ ] Build Docker image
+    - [ ] Push to container registry
+    - [ ] Deploy to Kubenetes cluster
 - Upgrade to .Net Core V5
 - [ ] TBA more topics...
 
