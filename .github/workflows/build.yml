@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build_test
     env:
-      IMAGE_TAG: "supermarket/api:$${{ github.sha }}"
+      IMAGE_TAG: "${{ secrets.REGISTRY_LOGIN_SERVER }}/supermarket-api:$${{ github.sha }}"
     steps:
       - name: Download Deploy Artifacts
         uses: actions/download-artifact@v2
