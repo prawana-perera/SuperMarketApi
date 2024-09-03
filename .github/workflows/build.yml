@@ -38,7 +38,7 @@ jobs:
       IMAGE_TAG: "${{ secrets.REGISTRY_LOGIN_SERVER }}/supermarket-api:${{ github.sha }}"
     steps:
       - name: Download Deploy Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: app-deploy-artifacts
       - name: 'Build and push image'
